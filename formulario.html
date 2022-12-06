@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="form.css"/>
+    <style>
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        input[type=number] {
+            -moz-appearance: textfield;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crud Cadastro</title>
+</head>
+<body>
+    <div class="box">
+        <form action="">
+            <fieldset>
+                <legend><b>Cadastro de produtos</b></legend>
+                <br></br>
+                <div class="inputbox">
+                    <input type="text" name="nome" id="nome" class="inputUser" required>
+                    <label for="nome">Nome do Produto</label>
+                </div>
+                <br></br>
+                <div class="inputbox">
+                    <input type="number" name="codigo" id="codigo" class="inputUser" required>
+                    <label for="nome">Codigo do Produto</label>
+                </div>
+                <br></br>
+                <div class="inputbox">
+                    <input type="number" name="quantidade" id="quantidade" class="inputUser" required>
+                    <label for="nome">Quantidade</label>    
+                </div>
+                <br></br>
+                <div class="inputbox">
+                    <input type="number" name="unidade" id="unidade" class="inputUser" required>
+                    <label for="nome">Valor por Unidade</label>
+                </div>
+                <br></br>
+                <div class="inputbox">
+                    <input type="number" name="token" id="token" class="inputUser" required>
+                    <label for="nome">Token</label>
+                </div>
+                <br></br>
+            </fieldset>
+        </form>
+
+    </div>
+    
+</body>
+</html>
