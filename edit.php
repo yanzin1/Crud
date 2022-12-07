@@ -1,31 +1,35 @@
 <?php
     
-    if(isset($_POST['submit']))
+    if(!empty($_GET['id']))
     {
-        // print_r($_POST['nome']);
-        // print_r('<br>');
-        // print_r($_POST['codigo']);
-        // print_r('<br>');
-        // print_r($_POST['quantidade']);
-        // print_r('<br>');
-        // print_r($_POST['unidade']);
-        // print_r('<br>');
-        // print_r($_POST['token']);
+
 
         include_once('config.php');
-        
-        $nome = $_POST['nome']; 
-        $codigo = $_POST['codigo'];
-        $quantidade = $_POST['quantidade'];
-        $valorunitario = $_POST['valorunitario'];
-        $codbarras = $_POST['codbarras'];
 
+        $id = $_GET['id'];
 
-        $result = mysqli_query ($conexao, "INSERT INTO cadastro (nome,codigo,data_cadastro,quantidade,valorunitario,codbarras)
-        VALUES (DEFAULT,'$nome',$codigo,CURTIME(),$quantidade,$valorunitario,$codbarras)");
+        $sqlSelect = "SELECT * FROM cadastro WHERE id=$id";
 
+        $result = $conexao->query($sqlSelect);
 
-        
+        if($result-> num_rows > 0)
+        {
+            while($user_data = mysqli_fetch_assoc($result))
+            {
+                $nome = $user_data['nome'];
+                $codigo = $user_data['codigo'];
+                $quantidade = $user_data['quantidade'];
+                $valorunitario = $user_data['valorunitario'];
+                $codbarras = $user_data['codbarras'];
+            }
+            
+           
+        }
+        else
+        {
+            header('location: sistema.php');
+        }
+
     }
 ?>
 <!DOCTYPE html>
@@ -78,42 +82,56 @@
             color: white;
 
         }
+        #update{
+            background-image: linear-gradient(to right, rgb(251, 255, 0) , rgb(180, 153, 0));
+            width: 100%;
+            border:none;
+            padding: 15px;
+            color:white;
+            font-size: 15px;
+            cursor: pointer;
+            border-radius: 10px;
+        }
+        #update:hover{
+            background-image: linear-gradient(to right, black , black);
+
+        }
     </style>
 </head>
 <body>
     <div class="box">
-        <form action="formulario.php" method="POST">
+        <form action="saveEdit.php" method="POST">
             <fieldset>
                 <legend><b>Cadastro de produtos</b></legend>
                 <br></br>
                 <div class="inputbox">
-                    <input type="text" name="nome" id="nome" class="inputUser" required>
+                    <input type="text" name="nome" id="nome" class="inputUser" value="<?php echo $nome ?>" required>
                     <label for="nome" class="LabelInput">Nome do Produto</label>
                 </div>
                 <br></br>
                 <div class="inputbox">
-                    <input type="number" name="codigo" id="codigo" class="inputUser" required>
+                    <input type="number" name="codigo" id="codigo" class="inputUser" value="<?php echo $codigo ?>" required>
                     <label for="nome" class="LabelInput">Codigo do Produto</label>
                 </div>
                 <br></br>
                 <div class="inputbox">
-                    <input type="number" name="quantidade" id="quantidade" class="inputUser" required>
+                    <input type="number" name="quantidade" id="quantidade" class="inputUser" value="<?php echo $quantidade ?>" required>
                     <label for="nome" class="LabelInput">Quantidade</label>    
                 </div>
                 <br></br>
                 <div class="inputbox">
-                    <input type="number" name="unidade" id="unidade" class="inputUser" required>
+                    <input type="number" name="unidade" id="unidade" class="inputUser" value="<?php echo $valorunitario ?>" required>
                     <label for="nome" class="LabelInput">Valor por Unidade</label>
                 </div>
                 <br></br>
                 <div class="inputbox">
-                    <input type="number" name="codbarras" id="codbarras" class="inputUser" required>
+                    <input type="number" name="codbarras" id="codbarras" class="inputUser" value="<?php echo $codbarras ?>" required>
                     <label for="nome" class="LabelInput">Codigo de Barras</label>
                 </div>
                 <br></br>
                 <input type="submit" name="update" id="update">
                 <br></br>
-                <div>
+                </div>
                 <a class="btn-link" href="entrar.php">Visualizar Produtos</a>
                 </div>  
                 
