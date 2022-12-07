@@ -1,6 +1,6 @@
 <?php
 
-    include_once('config.php');
+    include_once('connsql.php');
 
     if(isset($_POST['update']))
     {
@@ -11,7 +11,7 @@
         $valorunitario = $_POST['valorunitario'];
         $codbarras = $_POST['codbarras'];
 
-        $sqlUpdate = "UPDATE cadastro SET nome='$nome',codigo='$codigo',valorunitario='$valorunitario',,codbarras='$codbarras'
+        $sqlUpdate = "UPDATE cadastro SET nome='$nome',codigo='$codigo',valorunitario='$valorunitario',codbarras='$codbarras'
         WHERE id='$id'";
 
         $result = $conexao->query($sqlUpdate);

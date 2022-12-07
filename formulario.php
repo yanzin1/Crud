@@ -1,33 +1,3 @@
-<?php
-    
-    if(isset($_POST['submit']))
-    {
-        // print_r($_POST['nome']);
-        // print_r('<br>');
-        // print_r($_POST['codigo']);
-        // print_r('<br>');
-        // print_r($_POST['quantidade']);
-        // print_r('<br>');
-        // print_r($_POST['unidade']);
-        // print_r('<br>');
-        // print_r($_POST['token']);
-
-        include_once('config.php');
-        
-        $nome = $_POST['nome']; 
-        $codigo = $_POST['codigo'];
-        $quantidade = $_POST['quantidade'];
-        $valorunitario = $_POST['valorunitario'];
-        $codbarras = $_POST['codbarras'];
-
-
-        $result = mysqli_query ($conexao, "INSERT INTO cadastro (nome,codigo,data_cadastro,quantidade,valorunitario,codbarras)
-        VALUES (DEFAULT,'$nome',$codigo,CURTIME(),$quantidade,$valorunitario,$codbarras)");
-
-
-        
-    }
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -82,7 +52,7 @@
 </head>
 <body>
     <div class="box">
-        <form action="formulario.php" method="POST">
+        <form  name="formulario" action="enviardados.php" method="POST">
             <fieldset>
                 <legend><b>Cadastro de produtos</b></legend>
                 <br></br>
@@ -102,7 +72,7 @@
                 </div>
                 <br></br>
                 <div class="inputbox">
-                    <input type="number" name="unidade" id="unidade" class="inputUser" required>
+                    <input type="number" name="valorunitario" id="valorunitario" class="inputUser" required>
                     <label for="nome" class="LabelInput">Valor por Unidade</label>
                 </div>
                 <br></br>
