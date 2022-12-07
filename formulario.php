@@ -1,3 +1,30 @@
+<?php
+    
+    if(isset($_POST['submit']))
+    {
+        // print_r($_POST['nome']);
+        // print_r('<br>');
+        // print_r($_POST['codigo']);
+        // print_r('<br>');
+        // print_r($_POST['quantidade']);
+        // print_r('<br>');
+        // print_r($_POST['unidade']);
+        // print_r('<br>');
+        // print_r($_POST['token']);
+
+        include_once('config.php');
+        
+        $nome = $_POST['nome'];
+        $codigo = $_POST['codigo'];
+        $quantidade = $_POST['quantidade'];
+        $unidade = $_POST['unidade'];
+        $token = $_POST['token'];
+
+        $result = mysqli_query($conexao, "INSERT INTO cadastro(nome,codigo,quantidade,unidade,token)
+        VALUES ('$nome','$codigo','$quantidade','$unidade','$token')");
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,7 +73,7 @@
 </head>
 <body>
     <div class="box">
-        <form action="">
+        <form action="formulario.php" method="POST">
             <fieldset>
                 <legend><b>Cadastro de produtos</b></legend>
                 <br></br>
@@ -71,7 +98,7 @@
                 </div>
                 <br></br>
                 <div class="inputbox">
-                    <input type="number" name="token" id="token" class="inputUser" required>
+                    <input type="text" name="token" id="token" class="inputUser" required>
                     <label for="nome" class="LabelInput">Token</label>
                 </div>
                 <br></br>
