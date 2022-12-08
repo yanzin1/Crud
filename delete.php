@@ -1,13 +1,14 @@
 <?php
 
-    if(!empty($_GET['id']))
-    {
+    if(!empty($_GET['id'])) 
+    {   
+    
         include_once('connsql.php');
 
 
         $id = $_GET['id'];
 
-        $sqlSelect = "SELECT FROM cadastro WHERE id=$id";
+        $sqlSelect = "SELECT * FROM cadastro WHERE id=$id";
 
         $result = $conexao->query($sqlSelect);
 
@@ -15,9 +16,12 @@
         {
             $sqlDelete = "DELETE FROM cadastro WHERE id=$id";
             $resultDelete = $conexao->query($sqlDelete);
-
+            
+           
         }
-
-    }
+        
+    }  
     header('location: sistema.php');
+
+    
 ?>

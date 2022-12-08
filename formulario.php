@@ -85,8 +85,8 @@
                 <input type="submit" name="update" id="update">
                 <br></br>
                 <div>
-                <a class="btn-link" href="entrar.php">Visualizar Produtos</a>
                 <a class="btn-link" href="voltar.php">Login</a>
+                <a class="btn-link" href="entrar.php">Visualizar Produtos</a>
                 
                 </div>  
                 

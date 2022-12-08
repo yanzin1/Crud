@@ -99,9 +99,13 @@
 </head>
 <body>
     <div class="box">
-        <form action="saveEdit.php" method="POST">
+        <form action="saveEdit.php"  method="POST">
             <fieldset>
                 <legend><b>Cadastro de produtos</b></legend>
+                <div class="inputbox">
+                    <input type="number" name="id" id="nome" class="inputUser" value="<?php echo $id ?>" required>
+                    <label for="nome" class="LabelInput">Id do Produto</label>
+                </div>
                 <br></br>
                 <div class="inputbox">
                     <input type="text" name="nome" id="nome" class="inputUser" value="<?php echo $nome ?>" required>
@@ -119,7 +123,7 @@
                 </div>
                 <br></br>
                 <div class="inputbox">
-                    <input type="number" name="unidade" id="unidade" class="inputUser" value="<?php echo $valorunitario ?>" required>
+                    <input type="number" name="valorunitario" id="valorunitario" class="inputUser" value="<?php echo $valorunitario ?>" required>
                     <label for="nome" class="LabelInput">Valor por Unidade</label>
                 </div>
                 <br></br>
