@@ -7,7 +7,7 @@
 
         $id = $_GET['id'];
 
-        $sqlSelect = "SELECT * FROM cadastro WHERE id=$id";
+        $sqlSelect = "SELECT FROM cadastro WHERE id=$id";
 
         $result = $conexao->query($sqlSelect);
 
